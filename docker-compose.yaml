@@ -1,0 +1,12 @@
+services:
+  aquarium_site:
+    image: aquarium_site
+    container_name: aquarium_site
+    build:
+      context: . # current directory
+      dockerfile: dockerfile
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    volumes:
+      - .:/usr/share/nginx/html:ro # update code without rebuilding
